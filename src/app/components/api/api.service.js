@@ -5,7 +5,7 @@ MyApp.service("ApiService", function() {
   }
 
   this.getThings = function() {
-    return $http.get("/thing")
+    return $http.get(window.env.API_URL + "/thing")
       .then(function (response) {
         return response.data;
       })

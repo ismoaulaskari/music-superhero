@@ -23,6 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^2.0.0",
+    "ejs": "^2.5.1",
     "express": "^4.13.4"
   },
   "devDependencies": {

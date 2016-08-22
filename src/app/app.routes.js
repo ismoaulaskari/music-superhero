@@ -2,7 +2,7 @@ var MyApp = angular.module("MyApp", ["ui.router"]);
 
 MyApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/intro");
-
+  
   $stateProvider
     .state("main", {
       url: "/",
