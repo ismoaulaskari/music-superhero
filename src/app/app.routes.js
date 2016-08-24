@@ -13,6 +13,9 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
     .state("main.intro", {
       url: "intro",
       templateUrl: "templates/intro/intro.html",
+  //    controller: "RecordController",
+    //  controllerAs: "record",
+      
     })
     .state("main.login", {
       url: "login",
