@@ -7,10 +7,6 @@ const sourcemaps = require("gulp-sourcemaps");
 const plumber = require("gulp-plumber");
 const livereload = require("gulp-livereload");
 
-gulp.task("clean:dist", function () {
-  return del(["./dist/**/*"]);
-});
-
 gulp.task("build", ["clean:dist"], () => {
   return gulp.start(["build-js-min", "build-css", "build-html", "build-bower"])
 });

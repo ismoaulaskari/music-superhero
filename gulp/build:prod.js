@@ -1,7 +1,12 @@
 const gulp = require("gulp");
+const del = require("del");
 const annotate = require("gulp-ng-annotate");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
+
+gulp.task("clean:dist", function () {
+  return del(["./dist/**/*"]);
+});
 
 gulp.task("build:prod", ["clean:dist"], () => {
   return gulp.start(["build-js-min:prod", "build-css:prod", "build-html:prod", "build-bower:prod"])
