@@ -5,7 +5,11 @@ MyApp.controller("RecordController", ['$scope', 'RecordService', '$location', fu
       $scope.recorder.status = RecordService.toggle();
     }
 
+    $scope.pitchData = function () {
+      return RecordService.logPitch();
+    }
+
     $scope.reloadPage = function () {
-      $location.path('./');
+      $location.path('/intro');
     }
   }]);

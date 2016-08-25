@@ -1,4 +1,4 @@
-MyApp.service("RecordService", function () {
+MyApp.service("RecordService", ['$log', function ($log) {
   var self = this;
   self.running = false;
   self.voice = new Wad({source: 'mic'});
@@ -24,14 +24,16 @@ MyApp.service("RecordService", function () {
     self.logPitch();
   };
 
-  self.logPitch = function () {
-    console.log(self.tuner.pitch, self.tuner.noteName)
+  self.logPitch = function () {    
+    $log.debug({pitch: self.tuner.pitch, note:self.tuner.noteName})
     requestAnimationFrame(self.logPitch)
+    //return {pitch: self.tuner.pitch, noteName: self.tuner.noteName}
   };
   //logPitch();
 // If you sing into your microphone, your pitch will be logged to the console in real time.
   self.stop = function () {
     self.tuner.stopUpdatingPitch(); // Stop calculating the pitch if you don't need to know it anymore.
+    self.voice.stop();
     self.voice.stop();
   };
 
@@ -40,5 +42,5 @@ MyApp.service("RecordService", function () {
   }
 
 
-});
+}]);
 
