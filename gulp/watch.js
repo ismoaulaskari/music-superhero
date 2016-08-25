@@ -1,8 +1,7 @@
 const gulp = require("gulp");
 const livereload = require("gulp-livereload");
 
-gulp.task("watch:all", ["build",], () => {
-// gulp.task("watch:all", ["build-js", "build-css", "build-html", "build-bower"], () => {
+gulp.task("watch:all", ["build"], () => {
   livereload.listen();
   // if you use absolute path(./src) watch isn't notified by file creation/deletion
   gulp.watch("src/app/**/*.js", ["build-js-min"]);
