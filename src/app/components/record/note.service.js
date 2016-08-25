@@ -1,4 +1,4 @@
-MyApp.service("NoteService", ['$rootScope', '$broadcast', function ($rootScope, $broadcast) {
+MyApp.service("NoteService", [ function () {
     var self = this;
     self.lastNote;
     self.lastNoteTime = new Date();
@@ -8,7 +8,7 @@ MyApp.service("NoteService", ['$rootScope', '$broadcast', function ($rootScope, 
       var now = new Date();
       var noteLength = (now - self.lastNoteTime);
       self.lastNoteTime = now;
-      $rootScope.$broadcast('newNote', {note: self.lastNote, length: noteLength});
+      //('newNote', {note: self.lastNote, length: noteLength});
     }
   }]);
 
