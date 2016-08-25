@@ -4,6 +4,9 @@ node_modules/
 # bower package folder
 src/bower_components/
 
+# build folder
+dist/
+
 # environment variables file
 .env
 
