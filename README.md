@@ -9,15 +9,17 @@ This app is ultra small scaffold that I myself use as a base when starting out a
 2. Clone this repository and go to the root and enter ```npm i``` or ```npm install```.
 3. After downloading dependencies install gulp and bower globally ```npm i -g gulp bower```.
 4. It's recommended to use Livereload plugin, [here's one for Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei).
-5. This app uses dotenv for storing environment variables, rename the ```.dev-env``` file in the root of this folder to ```.env``` and anytime you want to use Travis or Heroku remember to add your variables to their config. Or for your own server create your own production ```.env```.
+5. This app uses dotenv for storing environment variables, copy the ```.dev-env``` file in the root of this folder and name it to ```.env```. If you want to use Travis or Heroku remember to add your variables to their config. Or for your own server create your own production ```.env```.
 6. Now you're all set, enter ```gulp start``` to run the development server.
 7. Go to localhost:3333 and hit the Livereload button in the upper corner of your browser. Now anytime you make changes to the code Livereload automatically refreshes the page (so you don't have to spam F5).
 
 # App's structure summed up:
 
-The source files are written into ```src```-folder. From that folder your gulp scripts move the files and process them into ```dist```-folder. Your ```index.html``` then gathers those files from that folder with link and script tags and vóila you got your Single-Page-Application. Frontend dependencies are installed with Bower using ```bower i <library> --save``` and if you need backend dependencies depending do you need them in production or not install them ```npm i <library> --save``` if you need them in production e.g. Express or ```npm i <library> --save-dev``` if not e.g. Karma.
+The source files are written into ```src```-folder. From that folder your gulp scripts move the files and process them into ```dist```-folder. Your ```index.ejs``` inside ```views``` folder then picks those files from that folder with link and script tags and vóila you got your Single-Page-Application. Frontend dependencies are installed with Bower using ```bower i <library> --save``` and if you need backend dependencies depending do you need them in production or not install them ```npm i <library> --save``` if you need them in production e.g. Express or ```npm i <library> --save-dev``` if not e.g. Karma.
 
 Create controllers to handle the stuff between view(html) and logic(services/factories). Do all your logic in services/factories e.g. calling the API or holding app-wide information. I myself prefer services over factories but in short: you can have only one service which is a single instance of itself but with factories you can create multiple instances of the same factory. Add routes and new Angular libraries to ```app.routes.js```. 
+
+Also any environment variables you want to use inside angular code you should first add to ```.env``` or whatever Heroku config vars. Then you have to add the variable to ```env``` object that is rendered to index inside ```index.js``` ```res.render("index" ...```. Now the ```index.ejs``` template is rendered with ```env``` set to ```window.env``` as you can see from the source code. So you can use e.g. ```window.env.API_URL``` to have dynamically changeble api-route.
 
 Here's a list of important commands to remember:
 
