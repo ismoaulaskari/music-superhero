@@ -25,7 +25,7 @@ MyApp.service("RecordService", function () {
 
   this.logPitch = function () {
     console.log(this.tuner.pitch, this.tuner.noteName)
-    requestAnimationFrame(logPitch)
+    requestAnimationFrame(this.logPitch)
   };
   //logPitch();
 // If you sing into your microphone, your pitch will be logged to the console in real time.

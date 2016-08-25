@@ -14,8 +14,9 @@
           </form>
         </div>
         <div class="column">
-          Other column
-          <!--<img class="ui spaced image" src="img/nodejs.png">-->
+          <p ng-show="(recorder.status == 'stopped')">
+            <button ng-click="reloadPage()">Try again</button>
+          </p>        
         </div>
       </div>
     </div>
