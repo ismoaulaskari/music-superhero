@@ -4,13 +4,13 @@ MyApp.service("ApiService", function() {
     return 0;
   }
 
-  this.getThings = function() {
-    return $http.get(window.env.API_URL + "/thing")
+  this.getItems = function() {
+    return $http.get(window.env.API_URL + "/item")
       .then(function (response) {
         return response.data;
       })
       .catch(function (err) {
-        console.error("Error ApiService getThings ", err);
+        console.error("Error ApiService getItems ", err);
         return {};
       })
   }
