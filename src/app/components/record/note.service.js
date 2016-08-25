@@ -3,16 +3,16 @@ MyApp.service("NoteService", [ function () {
     self.lastNote;
     self.lastNoteTime = new Date();
     self.lastNoteLength;
+    self.lastSound;
     self.song = new Array("start");
 
     self.newNote = function (newNote) {
-//      console.log(newNote);
       self.lastNote = newNote.note;
       var now = new Date();
       self.lastNoteLength = (now - self.lastNoteTime);
       self.lastNoteTime = now;
-      //console.log("note: " + self.lastNote + ", length: " + self.lastNoteLength);
-      self.song.push({note: self.lastNote, length: self.lastNoteLength});
+      self.lastSound = {note: self.lastNote, length: self.lastNoteLength};      
+      self.song.push(self.lastSound);
      //  console.log("SONG: " + self.song + ", length: " + self.song.length);
     }
 
