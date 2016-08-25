@@ -1,45 +1,43 @@
 MyApp.service("RecordService", function () {
-  var running = false;
-  var voice = new Wad({source: 'mic'});
-  var tuner = new Wad.Poly();
-  tuner.add(voice);
+  this.running = false;
+  this.voice = new Wad({source: 'mic'});
+  this.tuner = new Wad.Poly();
+  this.tuner.add(this.voice);
 
-  var toggleRecord = function () {
-    if(running) {
-      running = false;
-      stop();
+  this.toggle = function () {
+    if (this.running) {
+      this.running = false;
+      this.stop();
       return "stopped";
-    }
-    else {
-      running = true;
-      start();
+    } else {
+      this.running = true;
+      this.start();
       return "started";
     }
+    return "unknown";
   }
 
-  var start = function () {
-    voice.play();
-    tuner.updatePitch() // The tuner is now calculating the pitch and note name of its input 60 times per second. These values are stored in tuner.pitch and tuner.noteName.
-    logPitch();
+  this.start = function () {
+    this.voice.play();
+    this.tuner.updatePitch() // The tuner is now calculating the pitch and note name of its input 60 times per second. These values are stored in tuner.pitch and tuner.noteName.
+    this.logPitch();
   };
 
-  var logPitch = function () {
-    console.log(tuner.pitch, tuner.noteName)
+  this.logPitch = function () {
+    console.log(this.tuner.pitch, this.tuner.noteName)
     requestAnimationFrame(logPitch)
   };
   //logPitch();
 // If you sing into your microphone, your pitch will be logged to the console in real time.
-  var stop = function () {
-    tuner.stopUpdatingPitch(); // Stop calculating the pitch if you don't need to know it anymore.
-    voice.stop();
+  this.stop = function () {
+    this.tuner.stopUpdatingPitch(); // Stop calculating the pitch if you don't need to know it anymore.
+    this.voice.stop();
   };
-
-  this.record = function () {
-  }
 
   this.playDemo = function () {
 
   }
 
-})
+
+});
 
