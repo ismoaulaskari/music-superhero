@@ -25,7 +25,7 @@ MyApp.service("RecordService", ['$log', function ($log) {
   };
 
   self.logPitch = function () {    
-    $log.debug({pitch: self.tuner.pitch, note:self.tuner.noteName})
+    $log.log({pitch: self.tuner.pitch, note:self.tuner.noteName})
     requestAnimationFrame(self.logPitch)
     //return {pitch: self.tuner.pitch, noteName: self.tuner.noteName}
   };
