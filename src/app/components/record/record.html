@@ -1,7 +1,7 @@
 <div class="" ng-controller="RecordController">
   <section class="ui">
     <h1 class="header1">Microphone recorder</h1>
-    <h2 ng-show="(recorder.status === 'stopped')" class="header1">Check box to start</h2>  
+    <h2 ng-show="(recorder.status !== 'started')" class="header1">Check box to start</h2>  
     <h2 ng-show="(recorder.status === 'started')" class="header1">..sshh..</h2>        
     <!-- <div class="ui segments"> -->
     <div>
