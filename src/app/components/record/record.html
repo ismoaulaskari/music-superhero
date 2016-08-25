@@ -1,20 +1,21 @@
-<div class="">
+<div class="" ng-controller="RecordController">
   <section class="ui">
-    <h1 class="header1">Recording</h1>
-    <h2 class="header1">..sshh..</h2>
+    <h1 class="header1">Microphone recorder</h1>
+    <h2 ng-show="(recorder.status === 'stopped')" class="header1">Check box to start</h2>  
+    <h2 ng-show="(recorder.status === 'started')" class="header1">..sshh..</h2>        
     <!-- <div class="ui segments"> -->
     <div>
-      <div class="ui two column stackable grid" ng-controller="RecordController">
+      <div class="ui two column stackable grid">
         <div class="column">
           <form>
             <input type="checkbox" ng-click="toggleRecord()"/>          
             <p>
-              Recorder is {{ recorder.status }}
+              Recorder is {{ recorder.status}}
             </p>
           </form>
         </div>
         <div class="column">
-          <h3>{{ recorder.note }}</h3>
+          <h3>{{ recorder.note}}</h3>
           <p ng-show="(recorder.status === 'stopped')">
             Maybe we got some notes?
           </p>        
