@@ -1,8 +1,10 @@
-MyApp.controller("RecordController", ['$scope', 'RecordService', '$location', function ($scope, RecordService, $location) {
-    $scope.$on('newNote', function (event, arg) {
-      $scope.recorder = {};
-      $scope.recorder.note = 'got your ' + arg;
-    });
+MyApp.controller("RecordController", ['$scope', 'RecordService', 'NoteService', function ($scope, RecordService, NoteService) {
+//    $scope.$on('newNote', function (event, arg) {
+//      $scope.recorder = {};
+//      $scope.recorder.note = 'got your ' + arg;
+//    });
+
+    this.noteData = NoteService.getLastNoteData();
 
     $scope.toggleRecord = function () {
       $scope.recorder = {};
@@ -14,7 +16,13 @@ MyApp.controller("RecordController", ['$scope', 'RecordService', '$location', fu
       return RecordService.logPitch();
     }
 
-    $scope.reloadPage = function () {
-      $location.path('/intro');
+    // watch the service for changes
+    $scope.$watch(noteSource, function (current, previous) {
+      this.noteData = current;
+    });
+
+    var noteSource = function () {
+      return NoteService.getLastNoteData();
     }
+
   }]);
