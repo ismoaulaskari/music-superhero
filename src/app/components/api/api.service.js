@@ -1,4 +1,4 @@
-MyApp.service("ApiService", function() {
+MyApp.service("ApiService", function($http) {
 
   this.syncMethod = function() {
     return 0;
@@ -7,6 +7,7 @@ MyApp.service("ApiService", function() {
   this.getItems = function() {
     return $http.get(window.env.API_URL + "/item")
       .then(function (response) {
+        console.log(response)
         return response.data;
       })
       .catch(function (err) {

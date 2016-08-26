@@ -1,5 +1,12 @@
 language: node_js
 script:
-  - npm --silent run lint
-  - npm --silent test
-  - cat ./coverage/report-lcov/lcov.info | coveralls
+- npm --silent run lint
+- npm --silent test
+- cat ./coverage/report-lcov/lcov.info | coveralls
+deploy:
+  provider: heroku
+  api_key:
+    secure: beYcD8YjxdM4CSAVuolIKMz2XKQG402PrWjpdleCrRWaqva7pLAvmKXqVGZQ6RREZd/PwZFlxVkxlbd6y0LQ6I46jtcjsJBSI0lrFf0VvUhWCV+HF7BmabLNQZT0vaHHckLRBhHsrQ/vUkkkU+koFOQtCRg8VAY1vhB32t3ozE70dSrB9igvmrpd+7rpJ6lZqGx21gPZvKdQQIqoHh9f2S8fgRQ7DFesm+WRbeMh3ahZ7kV/hj1uC+vqyIZnPGW2hbcs/MXHERx/kD26kitVgeliPBn5vICsGEVx2HM65VaQlmGCxrzw4l3pW3Qi8JBm0J9Ew82T4Jiv1TMIXYcaJbkKD+wbhBV0IYnqIEgNM9KUFTol8waDhGonxPW4FpAypu+rxTAfnEw3KJ1qjO3naEbC/pjA3p6gZNFr8QRizxTzEWEdFbCYmhvN0M/wp4dAkh0sabWuz3t50cmqysECEzoj+kz36r5QFiAceGmgm8mBpMviL0bynC+3try28+gHrMaiAmf+uFdyPJSS/iSWYae0mPXg3HS/b7oFO0MCgBsDhYpJ5n9c42Qybm/rN9CDucHSzITOc2Fvz5KS8+V0BJ1PGu506QdZPCKTvifP3PqHqnLg38Uttyzv8YKmJRnFSi78lkoF4fyPt1m8Yj/hNNC6Frs2+yWX3EOqsABWdaw=
+  app: simple-angular-bootstrap
+  on:
+    repo: TeemuKoivisto/simple-angular-bootstrap
