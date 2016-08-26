@@ -1,6 +1,3 @@
-MyApp.controller("PlaybackController", function($scope) {
-  $scope.filter = true;
-  $scope.toggleFilter = function() {
-    $scope.filter = !$scope.filter;
-  }
-})
+MyApp.controller("PlaybackController", ['$scope', 'NoteService', 'RecordService', function ($scope, NoteService, RecordService) {
+
+  }]);
