@@ -22,6 +22,7 @@
     "bootstrap": "^3.3.6",
     "Ionicons": "ionicons#^2.0.1",
     "font-awesome": "^4.6.3",
-    "wad": "1.7.1"
+    "wad": "1.7.1",
+    "vexflow": "1.2.80"
   }
 }
