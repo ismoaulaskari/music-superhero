@@ -42,7 +42,7 @@ MyApp.service("RecordService", ['$log', function ($log) {
       for (var i = 0; i < song.length; i++) {
         if (song.note && song.length) {
           self.tuner.play({
-            volume: 0.8,
+            volume: 100.8,
             wait: song.length, // Time in seconds between calling play() and actually triggering the note.
             loop: false, // This overrides the value for loop on the constructor, if it was set. 
             pitch: song.note, // A4 is 440 hertz.

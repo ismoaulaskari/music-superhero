@@ -5,10 +5,12 @@
       <div class="ui two column stackable grid">
         <div class="column" ng-controller="PlaybackController">
           <form>
-            <p>            
+                        
+              <input type="button" ng-click="noteGen()" value="Make sheet"/>
+              <div id="boo"></div>
               <input type="button" ng-click="play()" value="Play song"/>
               <small>This is what you got {{ sheet.song}} </small>
-            </p>
+            
           </form>
         </div>
       </div>
