@@ -1,10 +1,9 @@
-describe("XDirective", function() {
-
+describe("XDirective", function () {
   var element;
   var outerScope;
   var innerScope;
 
-  beforeEach(inject(function($rootScope, $compile) {
+  beforeEach(inject(function ($rootScope, $compile) {
     element = angular.element('<super-button label="myLabel" on-click="myCallback()"></super-button>');
 
     outerScope = $rootScope;
@@ -15,8 +14,8 @@ describe("XDirective", function() {
     outerScope.$digest();
   }));
 
-  describe("suite", function() {
-    it ("should pass", function() {
+  describe("suite", function () {
+    it("should pass", function () {
       expect(true).toEqual(true);
     });
   });

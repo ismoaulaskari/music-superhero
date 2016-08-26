@@ -1,6 +1,6 @@
 var MyApp = angular.module("MyApp", ["ui.router"]);
 
-MyApp.config(function($stateProvider, $urlRouterProvider) {
+MyApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 
   $stateProvider
@@ -8,13 +8,13 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "templates/main/main.html",
       controller: "MainController",
-      controllerAs: "main"
+      controllerAs: "main",
     })
     .state("main.record", {
       url: "record",
       templateUrl: "templates/record/record.html",
       controller: "RecordController",
-      controllerAs: "rec"
+      controllerAs: "rec",
     })
     .state("main.login", {
       url: "login",
@@ -24,6 +24,6 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
       url: "playback",
       templateUrl: "templates/playback/playback.html",
       controller: "PlaybackController",
-      controllerAs: "play"
-    })
+      controllerAs: "play",
+    });
 });

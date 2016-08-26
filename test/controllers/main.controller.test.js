@@ -1,24 +1,23 @@
-describe("MainController", function() {
-
+describe("MainController", function () {
   var MainController,
-      $log;
+    $log;
 
   beforeEach(function () {
-    module('MyApp');
+    module("MyApp");
 
     inject(function ($rootScope, $controller) {
       scope = $rootScope.$new();
       MainController = $controller("MainController", { $scope: scope });
       // $log = _$log_;
-    })
+    });
   });
 
-  describe("suite", function() {
-    it ("should pass", function() {
+  describe("suite", function () {
+    it("should pass", function () {
       expect(true).toEqual(true);
     });
 
-    it ("should return 0", function() {
+    it("should return 0", function () {
       expect(scope.doStuff()).toEqual("stuff");
     });
 

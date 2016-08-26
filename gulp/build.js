@@ -8,7 +8,7 @@ const plumber = require("gulp-plumber");
 const livereload = require("gulp-livereload");
 
 gulp.task("build", ["clean:dist"], () => {
-  return gulp.start(["build-js-min", "build-css", "build-html", "build-bower"])
+  return gulp.start(["build-js-min", "build-css", "build-html", "build-bower", "build-index"]);
 });
 
 gulp.task("build-js", () => {
@@ -28,11 +28,11 @@ gulp.task("build-js-min", () => {
     .pipe(concat("app.min.js"))
     .pipe(annotate())
     .pipe(sourcemaps.init())
-    .pipe(uglify())
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("./dist/"))
     .pipe(livereload());
 });
+    //.pipe(uglify())
 
 gulp.task("build-css", () => {
   return gulp.src("./src/app/**/*.css")
@@ -48,6 +48,13 @@ gulp.task("build-html", () => {
   return gulp.src("./src/app/components/**/*.html")
     .pipe(plumber())
     .pipe(gulp.dest("./dist/templates"))
+    .pipe(livereload());
+});
+
+gulp.task("build-index", () => {
+  return gulp.src("./views/index.html")
+    .pipe(plumber())
+    .pipe(gulp.dest("./dist/"))
     .pipe(livereload());
 });
 
