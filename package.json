@@ -23,7 +23,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^2.0.0",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "sinon-chai": "^2.8.0",
+    "vexflow": "^1.2.80"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.7",
