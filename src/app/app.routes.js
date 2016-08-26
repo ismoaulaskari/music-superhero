@@ -2,7 +2,7 @@ var MyApp = angular.module("MyApp", ["ui.router"]);
 
 MyApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/intro");
-  
+
   $stateProvider
     .state("main", {
       url: "/",
@@ -21,11 +21,5 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
     .state("main.other", {
       url: "other",
       templateUrl: "templates/other/other.html",
-    })
-    .state("stuff", {
-      url: "/stuff",
-      templateUrl: "templates/stuff/stuff.html",
-      controller: "StuffController",
-      controllerAs: "stuffCtrl"
     })
 });
