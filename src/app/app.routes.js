@@ -26,10 +26,4 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
       controller: "PlaybackController",
       controllerAs: "play"
     })
-    .state("stuff", {
-      url: "/stuff",
-      templateUrl: "templates/stuff/stuff.html",
-      controller: "StuffController",
-      controllerAs: "stuffCtrl"
-    })
 });
