@@ -23,7 +23,8 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
     .state("main.playback", {
       url: "playback",
       templateUrl: "templates/playback/playback.html",
-      controller: "PlaybackController"
+      controller: "PlaybackController",
+      controllerAs: "play"
     })
     .state("stuff", {
       url: "/stuff",

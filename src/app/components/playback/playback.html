@@ -3,10 +3,13 @@
     <h1 class="header1">Play sheet music</h1>
     <div>
       <div class="ui two column stackable grid">
-        <div class="column">
-          <p>
-            This is what you got
-          </p>
+        <div class="column" ng-controller="PlaybackController">
+          <form>
+            <p>            
+              <input type="button" ng-click="play()" value="Play song"/>
+              <small>This is what you got {{ sheet.song}} </small>
+            </p>
+          </form>
         </div>
       </div>
     </div>

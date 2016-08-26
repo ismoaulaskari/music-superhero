@@ -9,8 +9,13 @@ MyApp.controller("RecordController", ['$scope', 'RecordService', 'NoteService', 
 
     $scope.toggleRecord = function () {
       $scope.recorder = {};
+      if ($scope.recorder.status === 'stopped') {
+        NoteService.song = []; //clear sheet
+        $scope.recorder.song = [];
+      }
       // $scope.recorder.status = "foo";
       $scope.recorder.status = RecordService.toggle();
+
     }
 
     $scope.pitchData = function () {
