@@ -29,9 +29,8 @@ MyApp.service("NoteService", [function () {
     //$bpm = 60; $bpm <= 179; a minute is 60 * 1000 ms., a qarter note is 1000ms in 60bpm in 4/4 
     var toVexflowNoteLength = function (millisec, bpm) {
       var preF = "/";
-      var postF = ",";
-      if (millisec > 0 && bpm > 0) {
-        return preF + q + postF;
+      var postF = ", ";
+      if (millisec > 0 && bpm > 0) {        
         if (millisec / bpm > 60)
           return preF + "w" + postF;
         if (millisec / bpm > 30)
@@ -56,7 +55,7 @@ MyApp.service("NoteService", [function () {
         //console.log("note=" + note.note + " len=" + note.length);
         if (note.note && note.length >= 0) {
           if (currentNote !== note.note) { //pitch changed
-            notes = notes + currentNote + toVexflowNoteLength(currentTime);
+            notes = notes + currentNote + toVexflowNoteLength(currentTime, bpm);
             currentNote = note.note;
             currentTime = note.length;
           } else { //pitch continues
