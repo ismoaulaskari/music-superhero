@@ -3,7 +3,7 @@ MyApp.directive("song", function (NoteService, $timeout) {
     scope: true,
     template: "<b>{{ songText }}</b>",
     replace: true,
-    link(scope, el, attrs) {
+    link: function (scope, el, attrs) {
 //
 //            scope.$watch(function(){
 //                return NoteService.lastSound;
@@ -11,7 +11,9 @@ MyApp.directive("song", function (NoteService, $timeout) {
 //                scope.songText = (newValues);
 //            }, true);
       var updateText = function () {
-        scope.songText = NoteService.lastSound;
+        if (scope.recorder.status !== "stopped") {
+          scope.songText = NoteService.lastSound; //don't know why this won't work with a getter function
+        }
         $timeout(function () {
           updateText();
         }, 500);
