@@ -31,9 +31,7 @@ gulp.task("build-html:prod", () => {
     .pipe(gulp.dest("./dist/templates"));
 });
 
-gulp.task("build-bower", () => {
-  return gulp.src(["./src/bower_components/**/*.min.*", "./src/bower_components/**/releases/vexflow-min.*", "./src/bower_components/**/fonts/*"])
-    .pipe(plumber())
-    .pipe(gulp.dest("./dist/bower"))
-    .pipe(livereload());
+gulp.task("build-bower:prod", () => {
+  return gulp.src(["./src/bower_components/**/*.min.*",  "./src/bower_components/**/releases/vexflow-min.*", "./src/bower_components/**/fonts/*"])
+    .pipe(gulp.dest("./dist/bower"));
 });
