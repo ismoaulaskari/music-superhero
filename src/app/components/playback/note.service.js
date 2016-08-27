@@ -11,14 +11,10 @@ MyApp.service("NoteService", [function () {
       var now = new Date();
       self.lastNoteLength = (now - self.lastNoteTime);
       self.lastNoteTime = now;
-      self.lastSound = {"note": self.lastNote, "length": self.lastNoteLength};
+      self.lastSound = {note: self.lastNote, length: self.lastNoteLength};
       self.song.push(self.lastSound);
-      console.log("NOTE: " + self.lastNote + ", length: " + self.lastNoteLength);
+      //console.log(self.lastSound);
     };
-
-    self.getLastSound = function () {
-      return self.lastSound;
-    }
 
     self.getSong = function () {
       return self.song;
@@ -35,6 +31,7 @@ MyApp.service("NoteService", [function () {
       var preF = "/";
       var postF = ",";
       if (millisec && bpm) {
+        return preF + q + postF;
         if (millisec / bpm > 60)
           return preF + "w" + postF;
         if (millisec / bpm > 30)
@@ -47,17 +44,19 @@ MyApp.service("NoteService", [function () {
           return preF + "16" + postF;
       }
       return undefined;
-    }
+    };
 
     self.convertToVexflowNotes = function (song, bpm) {
       var notes = "";
       var currentNote;
       var currentTime = 0;
-      for (var note in song) {
-        console.log("note=" + note.note + " len=" + note.length);
+      for (var i=0; i<song.length; i++) {
+        var note = song[i];
+console.log(note);
+        //console.log("note=" + note.note + " len=" + note.length);
         if (note.note && note.length >= 0) {
           if (currentNote !== note.note) { //pitch changed
-            notes.add(currentNote + toVexflowNoteLength(currentTime));
+            notes = notes + currentNote + toVexflowNoteLength(currentTime);
             currentNote = note.note;
             currentTime = note.length;
           } else { //pitch continues

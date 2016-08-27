@@ -4,7 +4,7 @@ MyApp.directive("song", function (NoteService, $timeout) {
     template: "<b>{{ songText }}</b>",
     replace: true,
     link: function (scope, el, attrs) {
-//
+//  didn't work
 //            scope.$watch(function(){
 //                return NoteService.lastSound;
 //            }, function(newValues) {
