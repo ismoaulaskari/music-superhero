@@ -30,7 +30,7 @@ MyApp.service("NoteService", [function () {
     var toVexflowNoteLength = function (millisec, bpm) {
       var preF = "/";
       var postF = ",";
-      if (millisec && bpm) {
+      if (millisec > 0 && bpm > 0) {
         return preF + q + postF;
         if (millisec / bpm > 60)
           return preF + "w" + postF;
@@ -43,16 +43,16 @@ MyApp.service("NoteService", [function () {
         if (millisec / bpm > 3)
           return preF + "16" + postF;
       }
-      return undefined;
+      return ", "; //undefined
     };
 
     self.convertToVexflowNotes = function (song, bpm) {
       var notes = "";
       var currentNote;
       var currentTime = 0;
-      for (var i=0; i<song.length; i++) {
+      for (var i = 0; i < song.length; i++) {
         var note = song[i];
-console.log(note);
+        console.log(note);
         //console.log("note=" + note.note + " len=" + note.length);
         if (note.note && note.length >= 0) {
           if (currentNote !== note.note) { //pitch changed
