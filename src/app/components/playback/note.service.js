@@ -5,15 +5,22 @@ MyApp.service("NoteService", [function () {
     self.lastNoteLength;
     self.lastSound;
     self.song = [];
+    self.songStarted = false;
 
     self.newNote = function (newNote) {
-      self.lastNote = newNote.note;
-      var now = new Date();
-      self.lastNoteLength = (now - self.lastNoteTime);
-      self.lastNoteTime = now;
-      self.lastSound = {note: self.lastNote, length: self.lastNoteLength};
-      self.song.push(self.lastSound);
-      //console.log(self.lastSound);
+      //don't log the pre-song silence
+      if (!self.songStarted && (typeof newNote !== "undefined")) {
+        self.songStarted = true;
+      }
+      if (self.songStarted) {
+        self.lastNote = newNote.note;
+        var now = new Date();
+        self.lastNoteLength = (now - self.lastNoteTime);
+        self.lastNoteTime = now;
+        self.lastSound = {note: self.lastNote, length: self.lastNoteLength};
+        self.song.push(self.lastSound);
+        //console.log(self.lastSound);
+      }
     };
 
     self.getSong = function () {
@@ -46,7 +53,7 @@ MyApp.service("NoteService", [function () {
       return preF + "16" + postF;
     };
 
-    self.convertToVexflowNotes = function (song, bpm) {   
+    self.convertToVexflowNotes = function (song, bpm) {
       var OCTAVE_SEPARATOR = '/';
       var notes = [];
       var currentNote;
@@ -60,9 +67,9 @@ MyApp.service("NoteService", [function () {
             if (typeof currentNote == "undefined") {
               currentNote = "b4";
             }
-            var noteNameLen = currentNote.length-1;
+            var noteNameLen = currentNote.length - 1;
             currentNote = currentNote.slice(0, noteNameLen) + OCTAVE_SEPARATOR + currentNote.slice(noteNameLen);
-            console.log("curnote: " + currentNote);
+            //console.log("curnote: " + currentNote);
             notes.push(new VF.StaveNote({keys: [currentNote], duration: toVexflowNoteLength(currentTime, bpm)}));
             currentNote = note.note;
             currentTime = note.length;

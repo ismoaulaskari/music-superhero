@@ -40,18 +40,17 @@ MyApp.service("RecordService", ["$log", function ($log) {
     };
 
     self.play = function (song) {
+      console.log("play")      
       for (var i = 0; i < song.length; i++) {
-        if (song.note && song.length) {
+        var note = song[i];        
+        if (typeof note.note !== "undefined" && note.length > 0) {
+          console.log("playing" + note.note + " for " + note.length);
           self.tuner.play({
-            volume: 100.8,
-            wait: song.length, // Time in seconds between calling play() and actually triggering the note.
+            volume: 0.5,
+            wait: 0, // Time in seconds between calling play() and actually triggering the note.
             loop: false, // This overrides the value for loop on the constructor, if it was set.
-            pitch: song.note, // A4 is 440 hertz.
-            label: "A", // A label that identifies this note.
-            env: {hold: 9001},
-            panning: [1, -1, 10],
-            filter: {frequency: 900},
-            delay: {delayTime: .8},
+            pitch: note.note, // A4 is 440 hertz.
+            label: note.note // A label that identifies this note.         
           });
         }
       }
