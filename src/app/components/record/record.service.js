@@ -39,21 +39,23 @@ MyApp.service("RecordService", ["$log", function ($log) {
       self.voice.stop();
     };
 
-    self.play = function (song) {
+    self.play = function (song) {      
       console.log("play")      
+      var saw = new Wad({source : 'sawtooth'})
       for (var i = 0; i < song.length; i++) {
         var note = song[i];        
         if (typeof note.note !== "undefined" && note.length > 0) {
           console.log("playing" + note.note + " for " + note.length);
-          self.tuner.play({
+          saw.play({
             volume: 0.5,
-            wait: 0, // Time in seconds between calling play() and actually triggering the note.
-            loop: false, // This overrides the value for loop on the constructor, if it was set.
+       //     wait: 0, // Time in seconds between calling play() and actually triggering the note.
+         //   loop: false, // This overrides the value for loop on the constructor, if it was set.
             pitch: note.note, // A4 is 440 hertz.
             label: note.note // A label that identifies this note.         
           });
         }
       }
+      saw.stop();
     };
   }]);
 
