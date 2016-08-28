@@ -3,3 +3,5 @@ Music superhero tool (prototype) that converts sounds from the microphone (with 
 Note that this is just a toy for a tehcnology test! If you're serious about music you might try something like Intelliscore.
 
 For installation instructions, see the base project this was forked from!
+
+Tuntikirjanpito <a href="tunnit.txt">täällä!</a>
