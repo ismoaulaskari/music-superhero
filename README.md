@@ -6,3 +6,10 @@ For installation instructions, see the base project this was forked from!
 <b>For some reason, recording does not always work the first time the browser is started on Chromium(the logs show no permission to use the mic). This can be fixed by clicking the url of the browser tab and pressing enter to reload the page!</b>
 
 Tuntikirjanpito <a href="tunnit.txt">täällä!</a>
+
+<p>
+<img src="musichero1.png"/>
+</p>
+<p>
+<img src="musichero2.png"/>
+</p>
