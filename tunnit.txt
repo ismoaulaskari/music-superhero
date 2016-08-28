@@ -1,0 +1,43 @@
+20160815 Ma 12-13. Aloitusluento Ihmettelyä mitä ruveta tekemään. Aloitusluento on aika vauhdikas, onneksi tunnen jo pinnallisesti monet työkaluista. kalvot eivät taida päätyä internetiin.
+
+20160815 Ma 16-18 Mietitty miten toteuttaa ympäristön asennus(liikaa luottamatta webistä kiskaistaviin node-työkaluihin) ja mikä olisi projektin aihe. Ajatus tällä hetkellä yrittää tehdä sekä angular-käli että node-backend kurssin valmiille pohjalle, ja tehdä siitä jonkinlainen metahakemisto tai cms tai työkalu jolla tehdään workflowta tai lomakkeita tms.
+
+20160815 Ma 20-21 vanhojen kurssien materiaaliin tutustuminen
+
+20160816 Ti 12-14 Asensin dockerin läppärilleni ja sinne nodesourcesta npm:n ja nodejs:n, gulpin ja bowerin. Mounttasin läppäristä docker-containeriini hakemiston johon kloonaan gitistä kurssin projektipohjat. Idea on ajaa npm installit ja buildikomennot dockerissa ja muokata koodia läppärillä Netbeansissa. Tuntikirjanpidon perustaminen
+
+20160816 Ti 14-15 Elvytin github-tilini ja forkkasin sekä angular- että nodebackend-bootstrapit. Angular-pohja käännetty ja saatu pyörimään gulpilla dockerin port forwardingin kautta. Pohjan mukana on hyvää luettavaa, luen sitä. 
+
+20160816 Ti 19-20 Luin kurssimateriaalia lapsia nukuttaessa.
+
+20160818 To 12-13 Projektipohjien läpikäynti, Netbeans-projektien perustaminen, nodeprojektin tuki ecmascript 2015:lle netbeansin nightly buildilla. Netbeans ei näe dockerissa olevaa npm;ää, ajetaan niitä vain siellä.
+
+20160819 Pe 12-17 Todettu angular-pohjaa tutkiessa että tarvitsen lisää teoriaa, luen siis muutaman päivän ajan töistä löytyvää 614-sivuista ng-book:ia.
+
+20160820 La 20-22 Ng-bookin lukua, antaa itsevarmuutta oman sovelluksen rakenteeseen. Modelin ja controllereiden tutkimista.
+
+20160821 Su 20-22 Ng-bookin lukua, scope, omat direktiivit.
+
+20160822 Ma 12-16 Ng-bookin lukua, valmiit direktiivit, servicet.
+
+20160823 Ti 12-15 Keksin idean omalle projektilleni, äänentaajuuden tunnistuksesta nuotin generointiin. Googlella löytyy Wad-kirjasto nuotin tunnistamiseen ja Vexflow nuotin nimistä nuottien generointiin. Tutustun kummankin projektin ohjeistukseen ja esimerkkeihin.
+
+20160824 Ke 17-21 Muokkaan simple-anglular-bootstrapin omaksi Music superhero-softan pohjaksi. Käyttöliittymän runko ja Wad-asennus joka löytää mikrofonin saadaan prototyyppiasteelle.
+
+20160825 To 12-14 Sovelluksen rakenteen muodostamista. Arkkitehtuurityötä.
+
+20160825 To 16-24 Arkkitehtuurin debugaamista. Nuotintunnistus wadilla toimii, mutta nuottien soitto ja Vexflown asentaminen tuottavat ongelmia. Lopulta vexflow asentuu muttei tee nuottiviivastoa.
+
+20160826 Pe 10-12 Epätoivoista debugaamista joka luovutetaan alkuunsa ja keskitytään leiskaamiseen demoa varten(ekalla luennolla ymmärsin väärin että demotilaisuutta ei olisi niin nyt onkin kiire). Samalla nujerran pienet vaikeudet ja pistän softan Internetiin näkyville pyörimään.
+
+20160826 Pe 12-13 Demoilua, paljon hienoja töitä ja myös demoefektejä.
+
+20160826 Pe 16-21 Mergeän open projektin päivitykset omaani ja siitä hajoaa index.html:n buildi, korjaan gulpin skriptejä muuttamalla, ja sitten koko buildi kun uglify-plugini kaatuu direktiiviini. En ymmärrä tätä heti joten poistan ko. pluginin. Myöhemmin saan direktiivinkin fiksattua.  
+
+20160827 La 8-12 Saan Vexflown, joka buildaa itsensä eri paikkaan kuin muut bower-moduulit, osaksi projektia ja tekemään jotain nuotteja. 
+
+20160827 La 19-21 Vexflown debugausta, virheet menee hienostuneemmiksi. Lopulta saan oman nuotin näkymään! 
+
+20160827 Su 8-12 Wad:n debugausta, miksi ääniä ei kuulu kun soittaa omia nuotteja. Lopulta saan fragiilisti äänet toimimaan, ja ne soi liian nopeasti. Tähän on kuitenkin tyydyttävä koska refaktoroidessa saan aikaan täyden hiljaisuuden ilman ymmrrettävää syytä. Vihamielinen kirjasto. Tuntikirjanpidon puhtaaksikirjoittaminen.
+
+
