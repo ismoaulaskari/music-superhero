@@ -7,30 +7,6 @@ MyApp.controller("PlaybackController", ["$scope", "NoteService", "RecordService"
       RecordService.play(NoteService.getSong());
     };
 
-    $scope.noteGenOld = function () {
-//      console.log("Making sheet");
-
-      var vf = new Vex.Flow.Factory({
-        renderer: {selector: "boo", width: 500, height: 200},
-      });
-
-      var score = vf.EasyScore();
-      var system = vf.System();
-
-      var notes = NoteService.convertToVexflowNotes(NoteService.getSong(), 60);
-      console.log("notes is " + notes);
-      system.addStave({
-        voices: [
-          score.voice(score.notes(notes, {stem: "up"}), {strict: false}),
-//          score.voice(score.notes(notes, {stem: "up"})),
-                  //  score.voice(score.notes("C#4/h, C#4", { stem: "down" })),
-        ],
-      });//.addClef("treble").addTimeSignature("4/4");
-
-
-      vf.draw();
-    };
-
     $scope.noteGen = function () {
       VF = Vex.Flow;
       var notes = NoteService.convertToVexflowNotes(NoteService.getSong(), 60);
@@ -56,7 +32,7 @@ MyApp.controller("PlaybackController", ["$scope", "NoteService", "RecordService"
 
       // Create a voice in 4/4 and add above notes
       var voice = new VF.Voice({num_beats: 4, beat_value: 4});
-      voice.setStrict(false);
+      voice.setStrict(false); //will be "too many ticks"-error without this
       voice.addTickables(notes);
 
 // Format and justify the notes to 400 pixels.
